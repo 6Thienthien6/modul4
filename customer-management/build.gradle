@@ -14,10 +14,6 @@ repositories {
 
 dependencies {
     compile group: 'javax.servlet', name: 'servlet-api', version: '2.5'
-    // https://mvnrepository.com/artifact/org.springframework/spring-webmvc
-    implementation group: 'org.springframework', name: 'spring-webmvc', version: '5.3.22'
-    // https://mvnrepository.com/artifact/jstl/jstl
-    implementation group: 'jstl', name: 'jstl', version: '1.2'
-
-
+    compile group: 'javax.servlet', name: 'jstl', version: '1.2'
+    compile group: 'org.springframework', name: 'spring-webmvc', version: '5.3.2'
 }

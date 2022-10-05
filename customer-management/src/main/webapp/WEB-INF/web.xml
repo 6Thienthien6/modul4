@@ -1,28 +1,28 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns="http://java.sun.com/xml/ns/javaee"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
-		  http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
-         version="2.5">
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<web-app xmlns="http://java.sun.com/xml/ns/javaee"-->
+<!--         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+<!--         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee-->
+<!--		  http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"-->
+<!--         version="2.5">-->
+<!--&lt;!&ndash;    <servlet>&ndash;&gt;-->
+<!--&lt;!&ndash;        <servlet-name>customers</servlet-name>&ndash;&gt;-->
+<!--&lt;!&ndash;        <servlet-class>cg.wbd.grandemonstration.servlet.CustomerServlet</servlet-class>&ndash;&gt;-->
+<!--&lt;!&ndash;    </servlet>&ndash;&gt;-->
+<!--&lt;!&ndash;    <servlet-mapping>&ndash;&gt;-->
+<!--&lt;!&ndash;        <servlet-name>customers</servlet-name>&ndash;&gt;-->
+<!--&lt;!&ndash;        <url-pattern>/customers</url-pattern>&ndash;&gt;-->
+<!--&lt;!&ndash;    </servlet-mapping>&ndash;&gt;-->
 <!--    <servlet>-->
-<!--        <servlet-name>customers</servlet-name>-->
-<!--        <servlet-class>cg.wbd.grandemonstration.servlet.CustomerServlet</servlet-class>-->
+<!--        <servlet-name>dispatcher</servlet-name>-->
+<!--        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>-->
+<!--        <init-param>-->
+<!--            <param-name>contextConfigLocation</param-name>-->
+<!--            <param-value>WEB-INF/app-conf.xml</param-value>-->
+<!--        </init-param>-->
+<!--        <load-on-startup>1</load-on-startup>-->
 <!--    </servlet>-->
 <!--    <servlet-mapping>-->
-<!--        <servlet-name>customers</servlet-name>-->
-<!--        <url-pattern>/customers</url-pattern>-->
+<!--        <servlet-name>dispatcher</servlet-name>-->
+<!--        <url-pattern>/</url-pattern>-->
 <!--    </servlet-mapping>-->
-    <servlet>
-        <servlet-name>dispatcher</servlet-name>
-        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-        <init-param>
-            <param-name>contextConfigLocation</param-name>
-            <param-value>WEB-INF/app-conf.xml</param-value>
-        </init-param>
-        <load-on-startup>1</load-on-startup>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>dispatcher</servlet-name>
-        <url-pattern>/</url-pattern>
-    </servlet-mapping>
-</web-app>
+<!--</web-app>-->

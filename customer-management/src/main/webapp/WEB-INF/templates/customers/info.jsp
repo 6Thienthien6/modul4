@@ -1,7 +1,6 @@
 <%@ page import="cg.wbd.grandemonstration.service.CustomerService" %>
 <%@ page import="cg.wbd.grandemonstration.service.CustomerServiceFactory" %>
 <%@ page import="cg.wbd.grandemonstration.model.Customer" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%!
     private CustomerService customerService = CustomerServiceFactory.getInstance();
 %>

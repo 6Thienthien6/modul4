@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>customers page</title>
+    <link rel="stylesheet" href="/assets/bootstrap-5.2.0-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/bootstrap-5.2.0-dist/css/all.min.css">
+    <style>
+        .row {
+            height: 100px;
+            padding: 20px;
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        .row > div > h1 {
+            color: white;
+        }
+
+        .row > div > a {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .button-head,
+        .button-main {
+            text-align: end;
+        }
+
+        thead {
+            background-color: rgb(10, 141, 21);
+            text-align: center;
+            color: white;
+        }
+
+        .button-main > button {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <div class="row bg-primary">
+        <div class="col-6">
+            <h1>List of customers</h1>
+        </div>
+        <div class="col-6 button-head">
+            <a href="customers/transfermonneyinformation" type="button" class="btn btn-outline-light"><i
+                    class="fa-solid fa-clock-rotate-left"></i> Transfer money
+                Information</a>
+            <a href="/customers/create" type="button" class="btn btn-outline-light"><i
+                    class="fa-regular fa-square-plus"></i> Add New
+                Customer</a>
+        </div>
+    </div>
+    <div class="main-body">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">FullName</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Address</th>
+                <th scope="col">Balance</th>
+                <th scope="col" colspan="5">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="customer : ${customers}">
+                <td th:text="${customer.getId()}"></td>
+                <td th:text="${customer.getFullName()}"></td>
+                <td th:text="${customer.getEmail()}"></td>
+                <td class="text-center" th:text="${customer.getPhone()}"></td>
+                <td th:text="${customer.getAddress()}"></td>
+                <td class="text-end num-space" th:text="${customer.getBalance()}"></td>
+                <td class="text-center">
+                    <a class="btn btn-outline-secondary" title="" data-toggle="tooltip" th:href="@{/customers/edit/__${customer.getId()}__}"
+                       data-bs-original-title="Edit">
+                        <i class="fa fa-user-edit" aria-hidden="true"></i>
+                    </a>
+                </td>
+                <td class="text-center">
+                    <a class="btn btn-outline-success" title="" data-toggle="tooltip" th:href="@{/customers/deposit/__${customer.getId()}__}"
+                       data-bs-original-title="Deposit">
+                        <i class="fa fa-plus" aria-hidden="true"></i>
+                    </a>
+                </td>
+                <td class="text-center">
+                    <a class="btn btn-outline-warning" title="" data-toggle="tooltip" th:href="@{/customers/withdraw/__${customer.getId()}__}"
+                       data-bs-original-title="Withdraw">
+                        <i class="fa fa-minus" aria-hidden="true"></i>
+                    </a>
+                </td>
+                <td class="text-center">
+                    <a class="btn btn-outline-primary" title="" data-toggle="tooltip" th:href="@{/customers/transfer/__${customer.getId()}__}"
+                       data-bs-original-title="Transfer">
+                        <i class="fa fa-exchange" aria-hidden="true"></i>
+                    </a>
+                </td>
+                <td class="text-center">
+                    <a class="btn btn-outline-danger" title="" data-toggle="tooltip" th:href="@{/customers/remove/__${customer.getId()}__}"
+                       data-bs-original-title="Remove">
+                        <i class="fa fa-ban" aria-hidden="true"></i>
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+        return new bootstrap.Popover(popoverTriggerEl)
+    })
+</script>
+<script src="/assets/bootstrap-5.2.0-dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

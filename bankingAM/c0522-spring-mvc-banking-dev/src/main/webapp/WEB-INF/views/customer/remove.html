@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Customer</title>
+    <link rel="stylesheet" href="/assets/bootstrap-5.2.0-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/bootstrap-5.2.0-dist/css/all.min.css">
+    <link rel="stylesheet" href="/assets/bootstrap-5.2.0-dist/sweetalert2/dist/sweetalert2.min.css">
+    <style>
+        .table-title{
+            background-color: #0c63e4;
+            color: white;
+            padding: 20px;
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        .row>div>a {
+            margin-top: 10px;
+            margin-bottom: 10px;
+
+        }
+
+        .button-head {
+            text-align: end;
+        }
+
+        .row-body {
+            margin-top: 20px;
+        }
+
+        .row-body>div>div {
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="table-title mb-4">
+        <div class="row">
+            <div class="col-sm-6">
+                <h1>Suspension of customers</h1>
+            </div>
+            <div class="col-sm-6">
+                <a href="/customers" class="btn btn-outline-light" style="margin-left: 29em;"><i class="fa fa-list" aria-hidden="true"></i> <span>Customer list</span></a>
+            </div>
+        </div>
+    </div>
+    <form id="frmSuspensionCustomer" method="post" th:action="@{/customers/remove}" th:object="${customer}">
+        <fieldset class="row g-3">
+            <input type="hidden" th:field="*{id}">
+            <div class="col-md-6">
+                <label class="form-label">Full name</label>
+                <input type="text" class="form-control" th:field="*{fullName}">
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Email</label>
+                <input type="email" class="form-control" th:field="*{email}">
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Phone</label>
+                <input type="tel" class="form-control" th:field="*{phone}">
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Address</label>
+                <input type="text" class="form-control" th:field="*{address}">
+            </div>
+            <div class="col-md-12">
+                <button type="submit" id="btnSuspendedCustomer" class="btn btn-outline-danger">
+                    <i class="fa fa-ban" aria-hidden="true"></i>
+                    Remove
+                </button>
+            </div>
+
+        </fieldset>
+    </form>
+    <div class="container">
+        <div class="alert" style="position: fixed; bottom: 0">
+            <th:block th:if="${message}">
+                <div class="alert alert-success alert-dismissible fade show">
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    <span th:text="${message}"></span>
+                </div>
+            </th:block>
+            <th:block th:if="${errors}">
+                <div class="alert alert-danger alert-dismissible fade show">
+                    <button type="button" class="btn-close" data-bs-dismiss="alert">&times;</button>
+                    <span th:text="${errors}"></span>
+                </div>
+            </th:block>
+        </div>
+    </div>
+</div>
+<script src="/assets/bootstrap-5.2.0-dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
